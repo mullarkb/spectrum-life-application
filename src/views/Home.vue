@@ -1,18 +1,23 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <b-button-group>
+      <b-button>Dublin</b-button>
+      <b-button>Cork</b-button>
+      <b-button>Galway</b-button>
+    </b-button-group>
+    <DisplayWeather />
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+
+import DisplayWeather from "../components/DisplayWeather";
 
 export default {
   name: 'home',
   components: {
-    HelloWorld
+    DisplayWeather,
   }
 }
 </script>
