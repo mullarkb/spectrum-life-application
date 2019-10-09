@@ -14,7 +14,7 @@
                     :location="location" />
           </b-button-group>
         </b-row>
-        <DisplayWeather />
+        <DisplayWeather v-if="locationSelected"/>
       </b-container>
     </div>
 </template>
@@ -39,6 +39,9 @@ export default {
   computed:{
     locations(){
       return this.$store.state.locations
+    },
+    locationSelected(){
+      return (this.$store.state.selectedLocationID != null)
     }
   }
 }
@@ -46,6 +49,5 @@ export default {
 <style lang="less">
   .btn-group{
     margin: 15px auto;
-
   }
 </style>

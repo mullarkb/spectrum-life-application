@@ -1,6 +1,6 @@
 <template>
     <div id="weather-display">
-        <h3>{{selectedMetric}} forecast for {{weather.city.name}}</h3>
+        <h3 v-if="weather.city">{{selectedMetric}} forecast for {{weather.city.name}}</h3>
         <b-button-group>
             <b-button @click="selectTemp">Temperature</b-button>
             <b-button @click="selectRain">Rainfall</b-button>
@@ -27,8 +27,8 @@
                 weather: {},
                 tempData: null,
                 rainData: null,
-                temperatures: [0,1,4,],
-                timestamps: ['dsf', 'sf', 'wfsf'],
+                temperatures: [],
+                timestamps: [],
                 graphLabel: 'Degrees Celcius',
                 selectedMetric: 'Temperature'
             }
@@ -37,7 +37,7 @@
             this.loadWeather()
         },
         methods:{
-          async loadWeather(){
+            async loadWeather(){
               await this.$store.dispatch("getWeather", this.locationID)
               this.weather = this.$store.state.weather
               this.temperatures = this.weather.list.map(x => x.main.temp)
@@ -48,7 +48,7 @@
               })
               this.timestamps = this.weather.list.map(x => x.dt_txt)
               this.fillData()
-          },
+            },
             fillData () {
                 this.tempData = {
                     datasets: [{

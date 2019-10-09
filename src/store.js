@@ -39,8 +39,8 @@ export default new Vuex.Store({
       },
 
     ],
-    selectedLocationID:"",
-   weather: "",
+    selectedLocationID: null,
+    weather: "",
   },
   mutations: {
     selectLocation(state, locationID){
