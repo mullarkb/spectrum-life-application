@@ -1,16 +1,16 @@
 <template>
     <div id="weather-display">
-        <h3>Weather forecast for {{weather.city.name}}</h3>
+        <h3>{{selectedMetric}} forecast for {{weather.city.name}}</h3>
         <b-button-group>
             <b-button @click="selectTemp">Temperature</b-button>
             <b-button @click="selectRain">Rainfall</b-button>
         </b-button-group>
         <BarChart
-                v-if="selectedMetric === 'rain'"
+                v-if="selectedMetric === 'Rainfall'"
                 :chart-data="rainData"
                 :height="200"/>
         <LineChart
-                v-if="selectedMetric === 'temp'"
+                v-if="selectedMetric === 'Temperature'"
                 :chart-data="tempData"
                 :height="200"/>
     </div>
@@ -30,7 +30,7 @@
                 temperatures: [0,1,4,],
                 timestamps: ['dsf', 'sf', 'wfsf'],
                 graphLabel: 'Degrees Celcius',
-                selectedMetric: 'temp'
+                selectedMetric: 'Temperature'
             }
         },
         created(){
@@ -69,10 +69,10 @@
                 }
             },
             selectTemp(){
-              this.selectedMetric = 'temp'
+              this.selectedMetric = 'Temperature'
             },
             selectRain(){
-              this.selectedMetric = 'rain'
+              this.selectedMetric = 'Rainfall'
             }
         },
         computed:{

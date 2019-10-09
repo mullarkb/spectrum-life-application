@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
+import Constants from './constants'
 
 Vue.use(VueAxios, axios)
 Vue.use(Vuex)
@@ -54,7 +55,7 @@ export default new Vuex.Store({
       context.commit("selectLocation", locationID)
     },
     async getWeather(context, locationID){
-      let res = await Vue.axios.get("http://api.openweathermap.org/data/2.5/forecast?id=" + locationID +"&units=metric&APPID=1fadda89ebba87920cec56a76d72abcd")
+      let res = await Vue.axios.post(Constants.API_URL + locationID +"&units=metric&APPID=" + Constants.API_KEY)
       let data  =  res.data
       context.commit("getWeather", data)
     }

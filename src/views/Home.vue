@@ -14,8 +14,6 @@
                     :location="location" />
           </b-button-group>
         </b-row>
-      </b-container>
-      <b-container fluid>
         <DisplayWeather />
       </b-container>
     </div>

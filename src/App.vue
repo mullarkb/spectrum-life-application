@@ -19,7 +19,8 @@
   margin-top: 50px;
   h1,h2,h3{
     color: #80c6cf;
-    margin: 20px auto;
+    margin: 15px auto;
+    line-height: 1.3;
   }
   p{
     color: #fff;
