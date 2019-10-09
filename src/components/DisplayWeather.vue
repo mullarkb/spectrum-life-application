@@ -40,12 +40,16 @@
             async loadWeather(){
               await this.$store.dispatch("getWeather", this.locationID)
               this.weather = this.$store.state.weather
+                //get the temperature data
               this.temperatures = this.weather.list.map(x => x.main.temp)
+                //get the rain data
               this.rain = this.weather.list.map(x => {
+                  // if there is no rain forecast list.rain doesn't exist
                   if(x.rain){
                       return x.rain['3h']
                   } else return 0
               })
+                //get the corresponding timestamps
               this.timestamps = this.weather.list.map(x => x.dt_txt)
               this.fillData()
             },
